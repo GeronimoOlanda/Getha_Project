@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Getha_Project.Domain.Entities\Getha_Project.Domain.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
