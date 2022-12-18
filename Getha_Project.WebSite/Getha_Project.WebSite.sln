@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Getha_Project.Domain.Reposi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Getha_Project.Domain.Entities", "Getha_Project.Domain.Entities\Getha_Project.Domain.Entities.csproj", "{A797F1D5-35C7-424B-B874-6CE3803EC020}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{94F931A3-3F47-407C-B4DF-CD884E612D4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2B2628CF-2AB6-43C9-BED0-95A182EB0948}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{90A46FCC-3AEF-4453-B81E-3006F0B0FDF5} = {94F931A3-3F47-407C-B4DF-CD884E612D4C}
+		{74630528-AE00-4377-9985-FA99BF9F784C} = {2B2628CF-2AB6-43C9-BED0-95A182EB0948}
+		{A4DE246E-4A11-4931-A8BE-773CDE3BB8FB} = {2B2628CF-2AB6-43C9-BED0-95A182EB0948}
+		{D364C21C-96FD-4231-9E0A-3F92F3906B8B} = {2B2628CF-2AB6-43C9-BED0-95A182EB0948}
+		{C0D3FC64-673C-47AC-B623-2CE23E2ED5DE} = {2B2628CF-2AB6-43C9-BED0-95A182EB0948}
+		{A797F1D5-35C7-424B-B874-6CE3803EC020} = {2B2628CF-2AB6-43C9-BED0-95A182EB0948}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27EAC1CB-8044-422D-ACA8-A9963167B14C}
