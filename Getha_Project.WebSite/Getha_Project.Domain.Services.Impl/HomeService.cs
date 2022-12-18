@@ -1,5 +1,6 @@
 ﻿using Getha_Project.Domain.Entities.DTO;
 using Getha_Project.Domain.Services.Impl.DTO;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,16 @@ using System.Threading.Tasks;
 namespace Getha_Project.Domain.Services.Impl
 {
     public class HomeService : IHomeService
-    {
+    { 
+           private readonly IConfiguration _configuration;
+            public HomeService(IConfiguration configuration)
+            {
+                _configuration = configuration;
+            }
+  
         public UserLoginDTO consultaUsuarioPorId(int idUsuario)
         {
-            var baseAddress = "https://localhost:7232/api/UserLogin?id=1";
+            var baseAddress = _configuration.GetConnectionString("urlGeroOlandaAPI");;
             UserLoginDTO exibicaoUserLogin = new UserLoginDTO();
             using (var http = new HttpClient())
             {
@@ -22,7 +29,7 @@ namespace Getha_Project.Domain.Services.Impl
                 http.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 http.Timeout = TimeSpan.FromMinutes(30);
 
-                HttpResponseMessage response = http.GetAsync($"{baseAddress}").Result;
+                HttpResponseMessage response = http.GetAsync($"{baseAddress}/api/UserLogin?id={idUsuario}").Result;
                 if (response.IsSuccessStatusCode)
                 {
                     string stringContent = response.Content.ReadAsStringAsync().Result;
@@ -41,6 +48,7 @@ namespace Getha_Project.Domain.Services.Impl
 
             userLogin.Id_Usuario = userLoginDTO.Id_Usuario;
             userLogin.LoginUser = userLoginDTO.LoginUser;
+            userLogin.UserName = userLoginDTO.UserName;
             userLogin.flag_Setor = userLoginDTO.flag_Setor;
             userLogin.flag_UserAlive = userLoginDTO.flag_UserAlive;
             userLogin.Password = userLoginDTO.Password;
