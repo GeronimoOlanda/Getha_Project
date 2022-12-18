@@ -1,7 +1,11 @@
+using Getha_Project.Domain.Services;
+using Getha_Project.Domain.Services.Impl;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IHomeService, HomeService>();
 
 var app = builder.Build();
 

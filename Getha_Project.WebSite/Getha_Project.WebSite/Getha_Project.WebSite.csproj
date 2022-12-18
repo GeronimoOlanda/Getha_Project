@@ -18,4 +18,9 @@
     <PackageReference Include="System.Security.Permissions" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Getha_Project.Domain.Entities\Getha_Project.Domain.Entities.csproj" />
+    <ProjectReference Include="..\Getha_Project.Domain.Services.Impl\Getha_Project.Domain.Services.Impl.csproj" />
+  </ItemGroup>
+
 </Project>
