@@ -11,6 +11,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\image\imag1.jpg" />
+    <None Include="wwwroot\image\imag2.jpg" />
+    <None Include="wwwroot\image\imag3.jpg" />
+    <None Include="wwwroot\image\imag4.jpg" />
+    <None Include="wwwroot\image\imag5.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.2.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="System.Configuration.Abstractions" Version="2.0.2.45" />
