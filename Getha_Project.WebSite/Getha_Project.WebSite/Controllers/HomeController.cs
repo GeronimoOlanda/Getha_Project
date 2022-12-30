@@ -21,9 +21,9 @@ namespace Getha_Project.WebSite.Controllers
 
         public IActionResult Index()
         {
-            int idUsuario = 5;
+            //int idUsuario = 5;
 
-            var resposta = _homeService.consultaUsuarioPorId(idUsuario);
+            //var resposta = _homeService.consultaUsuarioPorId(idUsuario);
             return View("Index");
         }
 
