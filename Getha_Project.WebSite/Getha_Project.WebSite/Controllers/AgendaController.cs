@@ -12,9 +12,11 @@ namespace Getha_Project.WebSite.Controllers
     public class AgendaController : Controller
     {
         private readonly ILogger<AgendaController> _logger;
-        public AgendaController(ILogger<AgendaController> logger)
+        private readonly IAgendaService _agendaService;
+        public AgendaController(ILogger<AgendaController> logger, IAgendaService agendaService)
         {
             _logger = logger;
+            _agendaService = agendaService;
         }
 
         public IActionResult Index()
