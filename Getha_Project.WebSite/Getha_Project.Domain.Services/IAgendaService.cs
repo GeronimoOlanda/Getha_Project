@@ -9,6 +9,6 @@ namespace Getha_Project.Domain.Services
 {
     public interface IAgendaService
     {
-        UserLoginDTO consultaUsuarioPorId(int idUsuario);
+        AgendaDTO consultaUsuarioPorId(int idUsuario);
     }
 }
