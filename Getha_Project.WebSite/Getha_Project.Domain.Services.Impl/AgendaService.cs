@@ -34,12 +34,12 @@ namespace Getha_Project.Domain.Services.Impl
                 {
                     string stringContent = response.Content.ReadAsStringAsync().Result;
                     var resposta = JsonConvert.DeserializeObject<RespostaLoginDTO>(stringContent);
-                    exibicaoAgenda.Add(resposta);
+                    //exibicaoAgenda.Add(resposta);
 
 
                 }
             }
-            return exibicaoAgenda;
+           // return exibicaoAgenda;
         }
     }
 }
