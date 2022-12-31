@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace Getha_Project.Domain.Services.Impl
 {
-    public class AgendaService : IHomeService
+    public class AgendaService : IAgendaService
     { 
            private readonly IConfiguration _configuration;
             public AgendaService(IConfiguration configuration)
             {
                 _configuration = configuration;
             }
-  
-        public AgendaDTO consultaUsuarioPorId(int idUsuario)
+
+       public AgendaDTO consultaUsuarioPorId(int idUsuario);
         {
             var baseAddress = _configuration.GetConnectionString("urlGeroOlandaAPI");;
             IList<AgendaDTO> exibicaoAgenda = new List<AgendaDTO>();
