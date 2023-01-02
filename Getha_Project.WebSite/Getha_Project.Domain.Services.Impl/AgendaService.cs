@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Getha_Project.Domain.Services.Impl
                 _configuration = configuration;
             }
 
-       public AgendaDTO consultaUsuarioPorId(int idUsuario);
+       public IList<AgendaDTO> consultaUsuarioPorId(int idUsuario)
         {
             var baseAddress = _configuration.GetConnectionString("urlGeroOlandaAPI");;
             IList<AgendaDTO> exibicaoAgenda = new List<AgendaDTO>();
@@ -33,13 +34,35 @@ namespace Getha_Project.Domain.Services.Impl
                 if (response.IsSuccessStatusCode)
                 {
                     string stringContent = response.Content.ReadAsStringAsync().Result;
-                    var resposta = JsonConvert.DeserializeObject<RespostaLoginDTO>(stringContent);
-                    //exibicaoAgenda.Add(resposta);
+                    var resposta = JsonConvert.DeserializeObject<IList<RespostaAgendaDTO>>(stringContent);
+
+                    if(resposta != null) { 
+                        exibicaoAgenda = AddRangeRespostaAgenda(resposta).ToList();
+                    }
 
 
                 }
             }
-           // return exibicaoAgenda;
+            return exibicaoAgenda;
+        }
+
+        private IList<AgendaDTO> AddRangeRespostaAgenda(IList<RespostaAgendaDTO> dtoList)
+        {
+            IList<AgendaDTO> agendaDTO = new List<AgendaDTO>();
+
+            foreach(var itemAgenda in agendaDTO)
+            {
+                foreach(var dto in dtoList) { 
+                itemAgenda.Id_Agenda = dto.Id_Agenda;
+                itemAgenda.Titulo = dto.Titulo;
+                itemAgenda.Descricao = dto.Descricao;
+                itemAgenda.Observacoes = dto.Observacoes;
+                itemAgenda.Detalhes = dto.Detalhes;
+                itemAgenda.flagExibir = dto.flagExibir;
+                }
+            }
+
+            return agendaDTO;
         }
     }
 }
